@@ -15,8 +15,8 @@
     "url": "http://www.fagis.fr/"
   },
   "repository": {
-    "type": "git",
-    "url": "git://github.com/umitgunduz/dropify"
+    "type": "https",
+    "url": "https://github.com/umitgunduz/dropify"
   },
   "bugs": "https://github.com/JeremyFagis/dropify/issues",
   "dependencies": {
