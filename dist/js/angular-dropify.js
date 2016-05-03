@@ -38,7 +38,7 @@ function (angular, Dropify) {
             throw new Error('dropify.js not loaded.');
           }
 
-          var dropzone = new Dropify(element[0], scope.dropifyConfig);
+          var dropify = new Dropify(element[0], scope.dropifyConfig);
 
           if (scope.eventHandlers) {
             Object.keys(scope.eventHandlers).forEach(function (eventName) {
