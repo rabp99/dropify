@@ -28,7 +28,6 @@ function (angular, Dropify) {
         template: '<div ng-transclude></div>',
         transclude: true,
         scope: {
-          dropify: '=',
           dropifyConfig: '=',
           eventHandlers: '='
         },
