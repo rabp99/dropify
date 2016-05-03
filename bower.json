@@ -24,6 +24,7 @@
   },
   "main": [
     "dist/js/dropify.js",
+    "dist/js/angular-dropify.js",
     "dist/css/dropify.css"
   ]
 }
