@@ -244,7 +244,7 @@ $dropify-font-path:        "../fonts" !default;
                     &.dropify-filename {
                         span.file-icon {
                             @extend .dropify-font;
-                            @extend .dropify-font-empty;
+                            //@extend .dropify-font-empty;
                             margin-right: 2px;
                         }
                     }
