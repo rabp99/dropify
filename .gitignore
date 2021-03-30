@@ -3,3 +3,4 @@ npm-debug.log
 
 # Bower Components
 bower_components
+/nbproject/private/

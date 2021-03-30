@@ -25,27 +25,37 @@ function (angular, Dropify) {
     .directive('ngDropify', function () {
       return {
         restrict: 'AE',
-        template: '<div ng-transclude></div>',
+        template: '<input type="file" class="dropify" ngf-select ng-model="file" accept="image/*" ng-transclude />',
         transclude: true,
+        replace: true,
         scope: {
           dropifyConfig: '=',
-          eventHandlers: '='
+          eventHandlers: '=',
+          file: '='
         },
         link: function(scope, element, attrs, ctrls) {
           try { Dropify }
           catch (error) {
             throw new Error('dropify.js not loaded.');
           }
+          
+            var dropify = new Dropify(element[0], scope.dropifyConfig);
 
-          var dropify = new Dropify(element[0], scope.dropifyConfig);
-
-          if (scope.eventHandlers) {
-            Object.keys(scope.eventHandlers).forEach(function (eventName) {
-              dropify.on(eventName, scope.eventHandlers[eventName]);
+            if (scope.eventHandlers) {
+              Object.keys(scope.eventHandlers).forEach(function (eventName) {
+                    dropify.on(eventName, scope.eventHandlers[eventName]);
+              });
+            }
+            
+            scope.dropify = dropify;
+            scope.$watch('dropifyConfig.defaultFile', function() {
+                if (scope.dropifyConfig.defaultFile !== undefined) {
+                    if (scope.dropifyConfig.defaultFile !== '' && scope.dropifyConfig.defaultFile !== undefined) {
+                        scope.dropify.resetPreview();
+                        scope.dropify.setPreview(scope.dropifyConfig.defaultFile);
+                    }
+                }
             });
-          }
-
-          scope.dropify = dropify;
         }
       };
     });
